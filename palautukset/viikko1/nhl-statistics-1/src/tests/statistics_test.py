@@ -1,6 +1,7 @@
 import unittest
 
 from player import Player
+from sort_by import SortBy
 from statistics import Statistics
 
 
@@ -40,3 +41,21 @@ class TestStatistics(unittest.TestCase):
         self.assertEqual(top_players[0].name, players[4].name)
         self.assertEqual(top_players[1].name, players[1].name)
         self.assertEqual(top_players[2].name, players[3].name)
+
+    def test_top_list_by_points(self):
+        top_players = self.statistics.top(3, SortBy.POINTS)
+        self.assertEqual(top_players[0].name, players[4].name)
+        self.assertEqual(top_players[1].name, players[1].name)
+        self.assertEqual(top_players[2].name, players[3].name)
+
+    def test_top_list_by_goals(self):
+        top_players = self.statistics.top(3, SortBy.GOALS)
+        self.assertEqual(top_players[0].name, players[1].name)
+        self.assertEqual(top_players[1].name, players[3].name)
+        self.assertEqual(top_players[2].name, players[2].name)
+
+    def test_top_list_by_assists(self):
+        top_players = self.statistics.top(3, SortBy.ASSISTS)
+        self.assertEqual(top_players[0].name, players[4].name)
+        self.assertEqual(top_players[1].name, players[3].name)
+        self.assertEqual(top_players[2].name, players[1].name)
