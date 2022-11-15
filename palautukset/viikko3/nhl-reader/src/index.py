@@ -18,8 +18,16 @@ def main():
         )
         players.append(player)
 
-    print("NHL players from Finland:")
-    for player in players:
+    filtered_players = sorted(
+        players,
+        key=lambda player: player.score,
+        reverse=True
+    )
+
+    print("NHL players from Finland")
+    print("")
+    print("NAME                 TEAM  SCORE")
+    for player in filtered_players:
         if player.nationality == "FIN":
             print(player)
 
