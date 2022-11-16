@@ -19,3 +19,10 @@ Ohjelmistotuotanto-kurssin palautusrepositorio | Helsingin yliopisto | Syksy 202
 - [Poetry Web](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko2/poetry-web)
 - [Project Reader](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko2/project-reader)
 - [Verkkokauppa](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko2/verkkokauppa-1)
+
+### Viikko 3
+
+- [NHL Reader](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko3/nhl-reader)
+- [Hello Robot](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko3/hello-robot)
+- [Login Robot](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko3/login-robot)
+- [Web Login Robot](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko3/web-login-robot)
