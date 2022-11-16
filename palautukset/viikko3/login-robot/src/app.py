@@ -12,7 +12,6 @@ class App:
 
             if command == "new":
                 (username, password) = self._read_credentials()
-
                 try:
                     self.user_sevice.create_user(username, password)
                     self.io.write("New user registered")
@@ -20,7 +19,6 @@ class App:
                     self.io.write(str(error))
             elif command == "login":
                 (username, password) = self._read_credentials()
-
                 try:
                     self.user_sevice.check_credentials(username, password)
                     self.io.write("Logged in")
@@ -30,5 +28,4 @@ class App:
     def _read_credentials(self):
         username = self.io.read("Username: ")
         password = self.io.read("Password: ")
-
         return (username, password)
