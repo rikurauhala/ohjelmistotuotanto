@@ -63,3 +63,32 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.lisaa_koriin(3)
         self.kauppa.tilimaksu(self.nimi, self.tili)
         self.pankki_mock.tilisiirto.assert_called_with(self.nimi, ANY, self.tili, ANY, 5)
+
+    def test_aloita_asiointi_nollaa_edellisen_ostoksen_tiedot(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.tilimaksu(self.nimi, self.tili)
+        self.pankki_mock.tilisiirto.assert_called_with(self.nimi, ANY, self.tili, ANY, 5)
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.tilimaksu(self.nimi, self.tili)
+        self.pankki_mock.tilisiirto.assert_called_with(self.nimi, ANY, self.tili, ANY, 5)
+
+    def test_kauppa_pyytaa_uuden_viitenumeron_jokaiselle_maksutapahtumalle(self):
+        self.viitegeneraattori_mock.uusi.return_value = 1
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.tilimaksu(self.nimi, self.tili)
+        self.pankki_mock.tilisiirto.assert_called_with(self.nimi, 1, self.tili, ANY, 5)
+        self.viitegeneraattori_mock.uusi.return_value = 2
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.tilimaksu(self.nimi, self.tili)
+        self.pankki_mock.tilisiirto.assert_called_with(self.nimi, 2, self.tili, ANY, 5)
+
+    def test_poista_korista_metodi_poistaa_tuotteen_korista(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.poista_korista(1)
+        self.kauppa.tilimaksu(self.nimi, self.tili)
+        self.pankki_mock.tilisiirto.assert_called_with(self.nimi, ANY, self.tili, ANY, 0)
