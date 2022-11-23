@@ -1,5 +1,6 @@
 from tuote import Tuote
 
+
 class Ostos:
     def __init__(self, tuote: Tuote):
         self.tuote = tuote
