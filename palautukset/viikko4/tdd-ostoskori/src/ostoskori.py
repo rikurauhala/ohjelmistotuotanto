@@ -36,4 +36,7 @@ class Ostoskori:
         pass
 
     def ostokset(self):
-        pass
+        ostokset = []
+        for ostos in self._ostokset.values():
+            ostokset.append(ostos)
+        return ostokset
