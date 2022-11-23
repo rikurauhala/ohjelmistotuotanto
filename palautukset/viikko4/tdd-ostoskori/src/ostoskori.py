@@ -30,7 +30,8 @@ class Ostoskori:
             self._ostokset[tuote].muuta_lukumaaraa(1)
 
     def poista_tuote(self, poistettava: Tuote):
-        pass
+        tuote = poistettava.nimi()
+        self._ostokset[tuote].muuta_lukumaaraa(-1)
 
     def tyhjenna(self):
         pass
