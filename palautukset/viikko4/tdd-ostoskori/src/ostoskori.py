@@ -3,21 +3,21 @@ from tuote import Tuote
 
 class Ostoskori:
     def __init__(self):
-        pass
+        self._ostokset = []
 
     def tavaroita_korissa(self):
         # kertoo korissa olevien tavaroiden lukumäärän
         # eli jos koriin lisätty 2 kpl tuotetta "maito", tulee metodin palauttaa 2 
         # samoin jos korissa on 1 kpl tuotetta "maito" ja 1 kpl tuotetta "juusto",
         # tulee metodin palauttaa 2 
-        return 0
+        return len(self._ostokset)
 
     def hinta(self):
         return 0
 
     def lisaa_tuote(self, lisattava: Tuote):
-        # lisää tuotteen
-        pass
+        uusi_ostos = Ostos(lisattava)
+        self._ostokset.append(uusi_ostos)
 
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
