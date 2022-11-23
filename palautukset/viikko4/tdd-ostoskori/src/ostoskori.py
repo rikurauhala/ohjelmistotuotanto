@@ -1,6 +1,7 @@
 from ostos import Ostos
 from tuote import Tuote
 
+
 class Ostoskori:
     def __init__(self):
         self._ostokset = {}
@@ -34,7 +35,7 @@ class Ostoskori:
         self._ostokset[tuote].muuta_lukumaaraa(-1)
 
     def tyhjenna(self):
-        pass
+        self._ostokset = {}
 
     def ostokset(self):
         ostokset = []

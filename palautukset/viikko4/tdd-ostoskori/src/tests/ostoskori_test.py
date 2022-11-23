@@ -111,3 +111,16 @@ class TestOstoskori(unittest.TestCase):
         ostos = ostokset[0]
         self.assertEqual(ostos.tuotteen_nimi(), self.maito.nimi())
         self.assertEqual(ostos.lukumaara(), 0)
+
+    # Vaihe 15
+    def test_metodi_tyhjenna_tyhjentaa_korin(self):
+        self.kori.lisaa_tuote(self.maito)
+        self.kori.lisaa_tuote(self.maito)
+        self.kori.lisaa_tuote(self.maito)
+        self.kori.lisaa_tuote(self.piima)
+        ostokset = self.kori.ostokset()
+        self.assertEqual(len(ostokset), 2)
+        self.assertEqual(ostokset[0].lukumaara(), 3)
+        self.kori.tyhjenna()
+        ostokset = self.kori.ostokset()
+        self.assertEqual(len(ostokset), 0)
