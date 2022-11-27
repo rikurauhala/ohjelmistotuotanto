@@ -32,4 +32,5 @@ Ohjelmistotuotanto-kurssin palautusrepositorio | Helsingin yliopisto | Syksy 202
 - [Maksukortti-mock](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko4/maksukortti-mock)
 - [Verkkokauppa](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko4/verkkokauppa)
 - [TDD Ostoskori](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko4/tdd-ostoskori)
+- [Retrospektiivi](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko4/retro.md)
 - [Tagiharjoittelu](https://github.com/rikurauhala/ohjelmistotuotanto/tags)
