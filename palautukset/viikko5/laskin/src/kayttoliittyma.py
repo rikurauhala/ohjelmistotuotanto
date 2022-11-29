@@ -13,20 +13,30 @@ class Summa:
     def __init__(self, sovellus, lue_syote):
         self._sovellus = sovellus
         self._lue_syote = lue_syote
+        self._vanha_arvo = None
 
     def suorita(self):
+        self._vanha_arvo = self._sovellus.tulos
         arvo = self._lue_syote()
         self._sovellus.plus(arvo)
+
+    def kumoa(self):
+        self._sovellus.aseta_arvo(self._vanha_arvo)
 
 
 class Erotus:
     def __init__(self, sovellus, lue_syote):
         self._sovellus = sovellus
         self._lue_syote = lue_syote
+        self._vanha_arvo = None
 
     def suorita(self):
+        self._vanha_arvo = self._sovellus.tulos
         arvo = self._lue_syote()
         self._sovellus.miinus(arvo)
+
+    def kumoa(self):
+        self._sovellus.aseta_arvo(self._vanha_arvo)
 
 
 class Nollaus:
@@ -37,15 +47,25 @@ class Nollaus:
         self._sovellus.nollaa()
 
 
+class Kumoa:
+    def __init__(self, sovellus, edellinen_komento):
+        self._sovellus = sovellus
+        self._edellinen_komento = edellinen_komento
+
+    def suorita(self):
+        self._edellinen_komento().kumoa()
+
+
 class Kayttoliittyma:
     def __init__(self, sovellus, root):
         self._sovellus = sovellus
         self._root = root
+        self._edellinen_komento = None
         self._komennot = {
             Komento.SUMMA: Summa(sovellus, self._lue_syote),
             Komento.EROTUS: Erotus(sovellus, self._lue_syote),
             Komento.NOLLAUS: Nollaus(sovellus),
-            #Komento.KUMOA: Kumoa(sovellus, self._lue_syote)
+            Komento.KUMOA: Kumoa(sovellus, self._hae_edellinen_komento)
         }
 
     def kaynnista(self):
@@ -99,6 +119,7 @@ class Kayttoliittyma:
     def _suorita_komento(self, komento):
         komento_olio = self._komennot[komento]
         komento_olio.suorita()
+        self._edellinen_komento = komento_olio
         self._kumoa_painike["state"] = constants.NORMAL
 
         if self._sovellus.tulos == 0:
@@ -108,3 +129,6 @@ class Kayttoliittyma:
 
         self._syote_kentta.delete(0, constants.END)
         self._tulos_var.set(self._sovellus.tulos)
+
+    def _hae_edellinen_komento(self):
+        return self._edellinen_komento
