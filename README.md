@@ -34,3 +34,9 @@ Ohjelmistotuotanto-kurssin palautusrepositorio | Helsingin yliopisto | Syksy 202
 - [TDD Ostoskori](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko4/tdd-ostoskori)
 - [Retrospektiivi](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko4/retro.md)
 - [Tagiharjoittelu](https://github.com/rikurauhala/ohjelmistotuotanto/tags)
+
+### Viikko 5
+
+- [Tennis](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko5/tennis)
+- [Laskin](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko5/laskin)
+- [IntJoukko](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko5/int-joukko)
