@@ -55,10 +55,13 @@ class HasFewerThan:
 
 
 class Or:
-    def __init__(self, *matchers):
+    def __init__(self, matcher, *matchers):
+        self._matcher = matcher
         self._matchers = matchers
 
     def test(self, player):
+        if not self._matcher.test(player):
+            return False
         for matcher in self._matchers:
             if matcher.test(player):
                 return True
