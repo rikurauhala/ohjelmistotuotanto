@@ -29,21 +29,27 @@ class Not:
 
 
 class HasAtLeast:
-    def __init__(self, value, attr):
+    def __init__(self, matcher, value, attr):
+        self._matcher = matcher
         self._value = value
         self._attr = attr
 
     def test(self, player):
+        if not self._matcher.test(player):
+            return False
         player_value = getattr(player, self._attr)
         return player_value >= self._value
 
 
 class HasFewerThan:
-    def __init__(self, value, attr):
+    def __init__(self, matcher, value, attr):
+        self._matcher = matcher
         self._value = value
         self._attr = attr
 
     def test(self, player):
+        if not self._matcher.test(player):
+            return False
         player_value = getattr(player, self._attr)
         return player_value < self._value
 
@@ -60,8 +66,11 @@ class Or:
 
 
 class PlaysIn:
-    def __init__(self, team):
+    def __init__(self, matcher, team):
+        self._matcher = matcher
         self._team = team
 
     def test(self, player):
+        if not self._matcher.test(player):
+            return False
         return player.team == self._team
