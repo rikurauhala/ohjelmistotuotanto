@@ -5,7 +5,19 @@ def main():
     while True:
         tulosta_ohjeet()
         pelimuoto = input("> ")[-1]
-        peli = Peli(pelimuoto)
+        if len(pelimuoto) == 0:
+            print("Syötä pelimuoto")
+            continue
+        peli = None
+        match pelimuoto:
+            case 'a':
+                peli = Peli.pelaaja_vs_pelaaja()
+            case 'b':
+                peli = Peli.pelaaja_vs_tekoaly()
+            case 'c':
+                peli = Peli.pelaaja_vs_parempi_tekoaly()
+            case _:
+               break
         peli.pelaa()
 
 

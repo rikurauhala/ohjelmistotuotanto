@@ -23,3 +23,15 @@ class Peli:
 
     def _tulosta_ohjeet(self):
         print("Peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s")
+
+    @staticmethod
+    def pelaaja_vs_pelaaja():
+        return Peli('a')
+
+    @staticmethod
+    def pelaaja_vs_tekoaly():
+        return Peli('b')
+    
+    @staticmethod
+    def pelaaja_vs_parempi_tekoaly():
+        return Peli('c')
