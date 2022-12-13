@@ -45,3 +45,8 @@ Ohjelmistotuotanto-kurssin palautusrepositorio | Helsingin yliopisto | Syksy 202
 
 - [Query language](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko6/query-language)
 - [Pull request](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko6/pull.md)
+
+### Viikko 7
+
+- [Kivi, paperi, sakset](https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko7/kivi-paperi-sakset)
+- [Merge]https://github.com/rikurauhala/ohjelmistotuotanto/tree/main/palautukset/viikko7/merge.md)
